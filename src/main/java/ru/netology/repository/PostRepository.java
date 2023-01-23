@@ -58,7 +58,7 @@ public class PostRepository{
           if (!posts.get(postExistingID).isRemoved()) {
             posts.replace(postExistingID, post);
           } else {
-            throw new NotFoundException();
+            throw new NotFoundException("Элемент не найден");
           }
       } else {
         long newPostId = postExistingID == 0 ? postID.incrementAndGet() : postExistingID;
@@ -77,7 +77,7 @@ public class PostRepository{
         throw new NotFoundException(exception);
       }
     } else {
-      throw new NotFoundException();
+      throw new NotFoundException("Элемент удален");
     }
   }
 }
